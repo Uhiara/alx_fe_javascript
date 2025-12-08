@@ -62,7 +62,7 @@ const newQuoteCategory = document.getElementById("newQuoteCategory");
 const addQuoteButton = document.getElementById("addQuoteButton");
 
 // 7. Define the function to add a new quote
-function addNewQuote() {
+function addQuote() {
   const text = newQuoteText.value.trim();
   const category = newQuoteCategory.value.trim();
 
@@ -82,11 +82,11 @@ function addNewQuote() {
   // Clear the input fields
   newQuoteText.value = "";
   newQuoteCategory.value = "";
-  alert(
-    "New quote added successfully! (${quote.length} quotes available now.)"
-  );
+
+  // Optional: Show the newly added quote immediately
+  alert(`Quote added successfully! (${quotes.length} total quotes now.)`);
   showRandomQuote();
 }
 
 // 8. Add event listener to the add quote button
-addQuoteButton.addEventListener("click", addNewQuote);
+addQuoteButton.addEventListener("click", addQuote);
