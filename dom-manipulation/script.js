@@ -29,7 +29,7 @@ const quoteDisplay = document.getElementById("quoteDisplay");
 const newQuoteButton = document.getElementById("newQuote");
 
 // 3. Define function to display a random quote
-function displayRandomQuote() {
+function showRandomQuote() {
   // Generate a random index based on the length of the quotes array
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const randomQuote = quotes[randomIndex];
@@ -51,10 +51,10 @@ function displayRandomQuote() {
 }
 
 // 4. Add event listener to the button to display a new quote on click
-newQuoteButton.addEventListener("click", displayRandomQuote);
+newQuoteButton.addEventListener("click", showRandomQuote);
 
 // 5. Display an initial quote when the page loads
-displayRandomQuote();
+showRandomQuote();
 
 // 6. Get new elements for the quote form
 const newQuoteText = document.getElementById("newQuoteText");
@@ -85,7 +85,7 @@ function addQuote() {
 
   // Optional: Show the newly added quote immediately
   alert(`Quote added successfully! (${quotes.length} total quotes now.)`);
-  displayRandomQuote();
+  showRandomQuote();
 }
 
 // 8. Add event listener to the add quote button
