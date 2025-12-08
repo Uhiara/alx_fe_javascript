@@ -85,7 +85,7 @@ function addQuote() {
 
   // Optional: Show the newly added quote immediately
   alert(`Quote added successfully! (${quotes.length} total quotes now.)`);
-  showRandomQuote();
+  displayRandomQuote();
 }
 
 // 8. Add event listener to the add quote button
