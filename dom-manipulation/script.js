@@ -39,15 +39,15 @@ function displayRandomQuote() {
 
   // Create the elements (DOM Manipulation: createElement)
   const quoteText = document.createElement("p");
-  const quoteCateory = document.createElement("h3");
+  const quoteCategory = document.createElement("h3");
 
   // Set the text content of the elements
   quoteText.textContent = `"${randomQuote.text}"`;
-  quoteCateory.textContent = `Category: ${randomQuote.category}`;
+  quoteCategory.textContent = `Category: ${randomQuote.category}`;
 
   // Append the elements to the quote display container (DOM Manipulation: appendChild)
   quoteDisplay.appendChild(quoteText);
-  quoteDisplay.appendChild(quoteCateory);
+  quoteDisplay.appendChild(quoteCategory);
 }
 
 // 4. Add event listener to the button to display a new quote on click
@@ -68,7 +68,7 @@ function addQuote() {
 
   // Validate input
   if (text === "" || category === "") {
-    alert("Please enter both quote text and author.");
+    alert("Please enter both quote text and category.");
     return;
   }
   // Create a new quote object
@@ -85,7 +85,7 @@ function addQuote() {
 
   // Optional: Show the newly added quote immediately
   alert(`Quote added successfully! (${quotes.length} total quotes now.)`);
-  showRandomQuote();
+  displayRandomQuote();
 }
 
 // 8. Add event listener to the add quote button
