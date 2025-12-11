@@ -205,10 +205,9 @@ if (added > 0) {
   saveQuotes();
   populateCategories();
   filterQuotes();
-  syncStatus.textContent = `Sync complete — ${added} new quotes added!`;
-} else {
-  syncStatus.textContent = "Sync complete — up to date";
 }
+
+syncStatus.textContent = "Quotes synced with server!";
 
 // ==================== INITIALIZATION ====================
 
