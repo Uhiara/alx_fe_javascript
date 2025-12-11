@@ -4,15 +4,104 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dynamic Quote Generator</title>
-  </head>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
 
+      #quoteDisplay p {
+        font-size: 1.5em;
+        font-style: italic;
+        color: #555;
+      }
+      #quoteDisplay h3 {
+        color: #888;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin-right: 10px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        margin-bottom: 10px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Task 3 Sync Status */
+      #syncStatus {
+        padding: 10px;
+        background-color: #ffe;
+        border: 1px solid #ffcc00;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        color: #444;
+      }
+
+      /* Task 2 Filter */
+      #categoryFilter {
+        padding: 10px;
+        margin-right: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      /* Task 0 Add Quote Form */
+      #add-quote-section {
+        margin-top: 40px;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      #add-quote-section input {
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      /* Task 1 Data Management */
+      #data-management-section {
+        margin-top: 30px;
+        padding: 20px;
+        border: 1px dashed #ccc;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
   <body>
     <h1>Dynamic Quote Generator</h1>
+
+    <div id="syncStatus">Application initialized. Checking for updates...</div>
+    <button id="manualSyncButton">Manual Sync Now</button>
+
+    <div style="margin-bottom: 20px">
+      <label for="categoryFilter">Filter by Category:</label>
+      <select id="categoryFilter" onchange="filterQuotes()">
+        <option value="all">All Categories</option>
+      </select>
+      <button id="newQuote">Show Random Quote</button>
+    </div>
+
     <div id="quoteDisplay"></div>
-    <button type="button" id="newQuote">Show New Quote</button>
-    <div
-      style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px"
-    >
+
+    <div id="add-quote-section">
       <h2>Add New Quote</h2>
       <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
       <input
@@ -20,8 +109,25 @@
         type="text"
         placeholder="Enter quote category"
       />
-      <button type="button" id="addQuoteButton">Add Quote</button>
+      <button id="addQuoteButton">Add Quote</button>
     </div>
+
+    <div id="data-management-section">
+      <h2>Data Management (JSON)</h2>
+      <button id="exportQuotes">Export Quotes to JSON</button>
+      <label
+        for="importFile"
+        style="display: block; margin-top: 15px; margin-bottom: 5px"
+        >Import Quotes from JSON:</label
+      >
+      <input
+        type="file"
+        id="importFile"
+        accept=".json"
+        onchange="importFromJsonFile(event)"
+      />
+    </div>
+
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
